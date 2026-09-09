@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Thành ❤️ Trang</title>
+<style>
+:root{--pink:#ff6f9f;--pink2:#ff9abb;--white:#fff}
+*{box-sizing:border-box} html,body{margin:0;min-height:100%;font-family:Georgia,"Times New Roman",serif;background:#050207;color:#fff}
+body{overflow-x:hidden;background:
+ radial-gradient(circle at 50% 20%,rgba(255,75,145,.16),transparent 32%),
+ radial-gradient(circle at 20% 80%,rgba(180,40,120,.10),transparent 30%),
+ #050207}
+#stars{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.star{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;opacity:.65;animation:twinkle 2.5s infinite alternate}
+@keyframes twinkle{to{opacity:.1;transform:scale(.4)}}
+#hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.heart{position:absolute;bottom:-40px;font-size:18px;color:#ff6f9f;filter:drop-shadow(0 0 8px rgba(255,80,150,.6));animation:float linear forwards}
+@keyframes float{0%{transform:translateY(0) rotate(0) scale(.7);opacity:0}10%{opacity:.9}100%{transform:translateY(-115vh) rotate(35deg) scale(1.2);opacity:0}}
+main{position:relative;z-index:2;max-width:760px;margin:auto;padding:58px 18px 80px;text-align:center}
+h1{font-size:clamp(40px,12vw,76px);margin:12px 0 8px;color:#fff;text-shadow:0 0 20px rgba(255,95,155,.55)}
+.subtitle{font-size:18px;color:#ffc2d6;letter-spacing:1px;margin-bottom:30px}
+.message{font-size:clamp(25px,7vw,44px);line-height:1.25;margin:22px auto 34px;color:#fff;text-shadow:0 0 18px rgba(255,90,150,.65)}
+.message span{color:#ff91b8}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 auto 28px}
+.gallery img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:18px;border:1px solid rgba(255,150,190,.3);box-shadow:0 8px 30px rgba(0,0,0,.45)}
+.card{background:rgba(255,255,255,.06);border:1px solid rgba(255,150,190,.2);border-radius:22px;padding:22px 18px;backdrop-filter:blur(8px);box-shadow:0 10px 35px rgba(0,0,0,.3)}
+button{border:0;border-radius:999px;padding:14px 22px;background:linear-gradient(135deg,#ff6f9f,#ff9abb);color:#fff;font-size:16px;cursor:pointer;box-shadow:0 8px 24px rgba(255,80,145,.25)}
+.small{font-family:system-ui,sans-serif;font-size:13px;color:#d7c8d0;margin-top:12px;line-height:1.5}
+footer{margin-top:34px;color:#bfaab5;font-family:system-ui,sans-serif;font-size:12px}
+@media(max-width:520px){main{padding-top:42px}.gallery{gap:8px}}
+</style>
+</head>
+<body>
+<div id="stars"></div><div id="hearts"></div>
+<main>
+  <div class="subtitle">MỘT GÓC NHỎ DÀNH RIÊNG CHO</div>
+  <h1>Thành ❤️ Trang</h1>
+  <div class="message">Iu em bé của anh <span>♡</span></div>
+
+  <div class="gallery">
+    <img src="photo1.jpeg" alt="Kỷ niệm 1">
+    <img src="photo2.jpeg" alt="Kỷ niệm 2">
+    <img src="photo3.jpeg" alt="Kỷ niệm 3">
+    <img src="photo4.jpeg" alt="Kỷ niệm 4">
+  </div>
+
+  <div class="card">
+    <div style="font-size:26px;margin-bottom:8px">💗</div>
+    <div style="font-size:19px;line-height:1.6">Cảm ơn em vì đã cùng anh tạo nên những kỷ niệm thật đẹp.</div>
+    <div style="font-size:18px;color:#ffabc5;margin-top:10px">Thành ❤️ Trang</div>
+    <div style="margin-top:18px">
+      <button onclick="window.open('https://www.youtube.com/watch?v=bs7u95QlCxs','_blank')">🎵 Mở “Mãi Mãi Bên Nhau”</button>
+      <div class="small">Bấm nút để mở MV chính thức trên YouTube. Trình duyệt thường chặn nhạc tự phát, nên cách này ổn định hơn.</div>
+    </div>
+  </div>
+
+  <footer>Made with ❤️ for Thành &amp; Trang</footer>
+</main>
+<script>
+const stars=document.getElementById('stars');
+for(let i=0;i<110;i++){
+  const s=document.createElement('i'); s.className='star';
+  s.style.left=Math.random()*100+'vw'; s.style.top=Math.random()*100+'vh';
+  s.style.animationDelay=(Math.random()*3)+'s'; s.style.opacity=(.15+Math.random()*.7);
+  stars.appendChild(s);
+}
+const hearts=document.getElementById('hearts');
+function spawn(){
+  const h=document.createElement('div'); h.className='heart';
+  h.textContent=['❤','♥','♡','💕'][Math.floor(Math.random()*4)];
+  h.style.left=Math.random()*100+'vw';
+  h.style.fontSize=(14+Math.random()*28)+'px';
+  h.style.animationDuration=(6+Math.random()*7)+'s';
+  hearts.appendChild(h);
+  setTimeout(()=>h.remove(),14000);
+}
+setInterval(spawn,380);
+for(let i=0;i<18;i++) setTimeout(spawn,i*180);
+</script>
+</body>
+</html>
